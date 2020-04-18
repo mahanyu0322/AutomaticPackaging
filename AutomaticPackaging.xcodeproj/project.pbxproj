@@ -14,6 +14,7 @@
 		F05CBD73244767320085F4D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F05CBD72244767320085F4D9 /* Assets.xcassets */; };
 		F05CBD76244767320085F4D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F05CBD74244767320085F4D9 /* Main.storyboard */; };
 		F05CBD852447F6ED0085F4D9 /* script.sh in Resources */ = {isa = PBXBuildFile; fileRef = F05CBD842447F6ED0085F4D9 /* script.sh */; };
+		F089D2BC244AECDA007D91B6 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F089D2BB244AECDA007D91B6 /* UserDefaults.swift */; };
 		F0E68914244858DA00E71B78 /* exportEnterprise.plist in Resources */ = {isa = PBXBuildFile; fileRef = F0E68913244858DA00E71B78 /* exportEnterprise.plist */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		F05CBD77244767320085F4D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F05CBD78244767320085F4D9 /* AutomaticPackaging.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AutomaticPackaging.entitlements; sourceTree = "<group>"; };
 		F05CBD842447F6ED0085F4D9 /* script.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = script.sh; sourceTree = "<group>"; };
+		F089D2BB244AECDA007D91B6 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		F0E68913244858DA00E71B78 /* exportEnterprise.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = exportEnterprise.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,6 +69,7 @@
 				F05CBD842447F6ED0085F4D9 /* script.sh */,
 				F05CBD6E2447672F0085F4D9 /* AppDelegate.swift */,
 				F05CBD702447672F0085F4D9 /* ViewController.swift */,
+				F089D2BB244AECDA007D91B6 /* UserDefaults.swift */,
 				F05CBD72244767320085F4D9 /* Assets.xcassets */,
 				F05CBD74244767320085F4D9 /* Main.storyboard */,
 				F05CBD77244767320085F4D9 /* Info.plist */,
@@ -150,6 +153,7 @@
 			files = (
 				F05CBD712447672F0085F4D9 /* ViewController.swift in Sources */,
 				F05CBD6F2447672F0085F4D9 /* AppDelegate.swift in Sources */,
+				F089D2BC244AECDA007D91B6 /* UserDefaults.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
