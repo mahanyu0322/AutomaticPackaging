@@ -55,13 +55,10 @@ appid_pwd=${16}
     echo "TeamIdentifier:"$TeamIdentifier
     ApplicationIdentifierPrefix=`/usr/libexec/PlistBuddy -c "Print ApplicationIdentifierPrefix:0" /dev/stdin <<< $(security cms -D -i $mobileprovision_file)`
     echo "ApplicationIdentifierPrefix:"${ApplicationIdentifierPrefix}
-
     PROVISIONING_PROFILE_SPECIFIER=`/usr/libexec/PlistBuddy -c "Print Entitlements:application-identifier" /dev/stdin <<< $(security cms -D -i $mobileprovision_file)`
     echo "AppID:"${PROVISIONING_PROFILE_SPECIFIER}
     BUNDLE_ID=${PROVISIONING_PROFILE_SPECIFIER#*${ApplicationIdentifierPrefix}.}
     echo $BUNDLE_ID
-    
-   
     
     #plist文件所在沙盒路径
     exportAdHocPlistPath=${project_sandBox_path}/exportAdHoc.plist
@@ -92,14 +89,12 @@ appid_pwd=${16}
             fi
         done
 
-
     if [ "$project_name" =  "" ];then
         echo '******\n未检索到xcworkspace项目，进程终止，请使用CocoaPods生成xcworkspace项目\n******'
         exit 0
     else
         echo '******\n已检索到工程项目\n******'
     fi
-
 
     if [ ${number} == "1" ];then
         echo '******\n开始执行内测版本打包程序\n******'
@@ -115,14 +110,8 @@ appid_pwd=${16}
         /usr/libexec/PlistBuddy -c "Add provisioningProfiles dict" $exportAppstorePlistPath
         /usr/libexec/PlistBuddy -c "Add provisioningProfiles:$BUNDLE_ID string $Name" $exportAppstorePlistPath
         /usr/libexec/PlistBuddy -c "Set teamID $TeamIdentifier" $exportAppstorePlistPath
-        
-        
     fi
-# exit
     
-    #cp -r ${exportEnterprisePlistPath} ${project_path}
-
-
     # cd到APP项目路径
     cd ${project_path}
 
@@ -188,7 +177,6 @@ appid_pwd=${16}
     echo '******\n打包ipa完成：'$exportIpaPath/$scheme_name.ipa
     open $exportIpaPath
 
-
     if [ "$is_seleted_app_store" =  "1" ];then
         #验证并上传到App Store
             # 将-u 后面的XXX替换成自己的AppleID的账号，-p后面的XXX替换成自己的密码
@@ -234,6 +222,7 @@ appid_pwd=${16}
             echo '******\n未输入api key 和 user key,跳过上传到蒲公英'
         fi
     fi
+    
 elif [ ${typeNum} == "1" ];then
 
     if [ `command -v fir` ];then
@@ -244,11 +233,11 @@ elif [ ${typeNum} == "1" ];then
             echo '******\n开始发布到fir '
             fir login -T $token
             fir publish "$ipaPath" -Q
-#            open -a "/Applications/Safari.app" http://d.6short.com/${token:0:18}
         fi
     else
         echo 'fir 未安装,请使用 gem install fir-cli 指令安装'
     fi
+    
 elif [ ${typeNum} == "2" ];then
 
     #API KEY 、USER KEY
@@ -263,6 +252,7 @@ elif [ ${typeNum} == "2" ];then
     else
         echo '******\n未输入api key 和 user key,跳过上传到蒲公英'
     fi
+    
 elif [ ${typeNum} == "3" ];then
 
         #验证并上传到App Store
@@ -274,9 +264,7 @@ elif [ ${typeNum} == "3" ];then
       else
           echo '上传到App Store账号密码必填'
       fi
-
 fi
-
 
 exit 0
 
